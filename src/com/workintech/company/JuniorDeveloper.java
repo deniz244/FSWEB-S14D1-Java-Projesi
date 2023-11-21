@@ -5,7 +5,9 @@ public class JuniorDeveloper extends Employee{
         super(id, name, salary);
     }
 
-    public void work(){
-        System.out.println("Junior Developer starts to working");
+    @Override
+    public void work() {
+        //setSalary(32000);
+        System.out.println(getName() + " junior has start to working");
     }
 }

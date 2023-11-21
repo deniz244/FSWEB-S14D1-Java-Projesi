@@ -5,7 +5,9 @@ public class MidDeveloper  extends Employee{
         super(id, name, salary);
     }
 
-    public void work(){
-        System.out.println("Mid Developer starts to working");
+    @Override
+    public void work() {
+        //setSalary(40000);
+        System.out.println(getName() + " mid developer starts to working");
     }
 }

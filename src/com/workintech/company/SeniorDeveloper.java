@@ -5,7 +5,8 @@ public class SeniorDeveloper extends Employee{
         super(id, name, salary);
     }
 
-    public void work(){
-        System.out.println("Senior Developer starts to working");
+    @Override
+    public void work() {
+        System.out.println(getName() + " senior developer starts to working");
     }
 }

@@ -1,60 +1,89 @@
 package com.workintech.company;
 
-public class HRManager extends Employee {
-    private String[] juniorDevelopers;
-    private String[] midDevelopers;
-    private String[] seniorDevelopers;
+import java.util.Arrays;
 
-    public HRManager(long id, String name, double salary, String[] juniorDevelopers,
-                     String[] midDevelopers, String[] seniorDevelopers) {
+public class HRManager extends Employee {
+    private JuniorDeveloper[] juniorDevelopers; //JuniorDeveloper class tipinde oluşturulmuş array
+    private MidDeveloper[] midDevelopers;//MidDeveloper class tipinde oluşturulmuş array
+    private SeniorDeveloper[] seniorDevelopers;//SeniorDeveloper class tipinde oluşturulmuş array
+
+    public HRManager(long id, String name, double salary, JuniorDeveloper[] juniorDevelopers,
+                     MidDeveloper[] midDevelopers, SeniorDeveloper[] seniorDevelopers) {
         super(id, name, salary);
         this.juniorDevelopers = juniorDevelopers;
         this.midDevelopers = midDevelopers;
         this.seniorDevelopers = seniorDevelopers;
     }
 
-    public String[] getJuniorDevelopers() {
+    public JuniorDeveloper[] getJuniorDevelopers() {
         return juniorDevelopers;
     }
 
-    public String[] getMidDevelopers() {
+    public MidDeveloper[] getMidDevelopers() {
         return midDevelopers;
     }
 
-    public String[] getSeniorDevelopers() {
+    public SeniorDeveloper[] getSeniorDevelopers() {
         return seniorDevelopers;
     }
 
-    public void addEmployee(String juniorDeveloperName,String midDeveloperName){
-        for (int i = 0; i < juniorDevelopers.length; i++) {
-            if (juniorDevelopers[i] == null) {
-                juniorDevelopers[i] = juniorDeveloperName;
+    public void addEmployee(int index, JuniorDeveloper juniorDeveloperName){
+        try {
+            if (juniorDevelopers[index] == null) {
+                juniorDevelopers[index] = juniorDeveloperName;
                 System.out.println("Junior Developer added: " + juniorDeveloperName);
+            }else {
+                System.out.println("Error: Junior Developers array is full.");
             }
+        }catch (ArrayIndexOutOfBoundsException ex) {
+            ex.printStackTrace();
+            System.out.println("Index not found"+ index);
         }
-        System.out.println("Error: Junior Developers array is full.");
 
-        for (int i = 0; i < midDevelopers.length; i++) {
-            if (midDevelopers[i] == null) {
-                midDevelopers[i] = midDeveloperName;
+    }
+
+    public void addEmployee(int index,MidDeveloper midDeveloperName){
+       try {
+            if (midDevelopers[index] == null) {
+                midDevelopers[index] = midDeveloperName;
                 System.out.println("Mid Developer added: " + midDeveloperName);
+            }else{
+                System.out.println("Error: Mid Developers array is full.");
             }
-        }
-        System.out.println("Error: Mid Developers array is full.");
+        }catch (ArrayIndexOutOfBoundsException ex) {
+           ex.printStackTrace();
+           System.out.println("Index not found"+ index);
+       }
+
     }
 
-    public void addEmployee(String seniorDeveloperName){
-        for (int i = 0; i < seniorDevelopers.length; i++) {
-            if (seniorDevelopers[i] == null) {
-                seniorDevelopers[i] = seniorDeveloperName;
+    public void addEmployee(int index, SeniorDeveloper seniorDeveloperName){
+        try {
+            if (seniorDevelopers[index] == null) {
+                seniorDevelopers[index] = seniorDeveloperName;
                 System.out.println("Senior Developer added: " + seniorDeveloperName);
+            }else{
+                System.out.println("Error: Senior Developers array is full.");
             }
+        }catch (ArrayIndexOutOfBoundsException ex) {
+            ex.printStackTrace();
+            System.out.println("Index not found" + index);
         }
-        System.out.println("Error: Senior Developers array is full.");
+
     }
 
-    public void work(){
-        System.out.println("Developer starts to working");
+    @Override
+    public void work() {
+        //setSalary(60000);
+        System.out.println(getName() + " hr manager starts to working");
     }
 
+    @Override
+    public String toString() {
+        return super.toString() + "HRManager{" +
+                "juniorDevelopers=" + Arrays.toString(juniorDevelopers) +
+                ", midDevelopers=" + Arrays.toString(midDevelopers) +
+                ", seniorDevelopers=" + Arrays.toString(seniorDevelopers) +
+                '}';
+    }
 }

@@ -5,9 +5,13 @@ public class Employee {
     private String name;
     private double salary;
 
-    public Employee(long id, String name, double salary) {
+    public Employee(long id, String name) {
         this.id = id;
         this.name = name;
+    }
+
+    public Employee(long id, String name, double salary) {
+        this(id, name);
         this.salary = salary;
     }
 
