@@ -1,4 +1,4 @@
-package com.workintech.models;
+package com.workintech.company;
 
 public class Employee {
     private long id;

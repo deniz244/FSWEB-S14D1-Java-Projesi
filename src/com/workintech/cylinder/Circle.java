@@ -1,4 +1,4 @@
-package com.workintech.models;
+package com.workintech.cylinder;
 
 public class Circle {
     private double radius;
@@ -20,7 +20,7 @@ public class Circle {
     }
 
     public double getArea(){
-        return radius*radius*Math.PI;
+        return Math.pow(radius,2)*Math.PI;
     }
 
     @Override

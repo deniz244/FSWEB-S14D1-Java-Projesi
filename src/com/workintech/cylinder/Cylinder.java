@@ -1,6 +1,6 @@
-package com.workintech.models;
+package com.workintech.cylinder;
 
-public class Cylinder extends Circle{
+public class Cylinder extends Circle {
      private double height;
 
      public void checkHeight(double height){
@@ -13,7 +13,7 @@ public class Cylinder extends Circle{
 
     public Cylinder(double radius, double height) {
         super(radius);
-        checkRadius(height);
+        checkHeight(height);
     }
 
     public double getHeight() {
@@ -21,7 +21,7 @@ public class Cylinder extends Circle{
     }
 
     public double getVolume(){
-         return getArea()*height;
+         return height*getArea();
     }
 
     @Override
